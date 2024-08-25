@@ -1,0 +1,23 @@
+{% extends "shares/base.html" %}
+    
+{% block body %}
+<div class="mt-5">
+    <form method="post">
+        {% csrf_token %}
+        
+        <label for="{{ form.symbol.id_for_label }}">Symbol</label>
+        {{ form.symbol}}
+        <label for="{{ form.company_name.id_for_label }}">Company Name</label>
+        {{ form.company_name}}
+        <label for="{{ form.tnx_type.id_for_label }}">Transaction Type</label>
+        {{ form.tnx_type}}
+        <label for="{{ form.quantity.id_for_label }}">Quantity</label>
+        {{ form.quantity}}
+        <label for="{{ form.txn_price.id_for_label }}">Transaction Price</label>
+        {{ form.txn_price}}
+        <label for="{{ form.txn_date.id_for_label }}">Transaction Date</label>
+        <input type="date" name="txn_date" required="" id="id_txn_date" value="{{form.txn_date.value}}">
+        <button>Submit</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends "shares/base.html" %}
+    
+{% block body %}
+
+</ul>
+<div class="columns mt-6">
+    <div class="column is-8 is-offset-2 is-10-mobile is-offset-1-mobile">
+        <a href="/shares"><button class="button is-primary is-outlined is-small" >Add Transaction</button></a>
+    </div>
+</div>
+<div class="columns">
+    <div class="column is-8 is-offset-2 is-10-mobile is-offset-1-mobile">
+        <div class="columns is-multiline">
+            {% for share in share_list %}
+                <div class="column is-4">
+                    <div class="card">
+                        <div class="card-content">
+                        <div class="content">
+
+                            <div class="columns is-mobile">
+                                <div class="column">
+                                    <div class="cell is-size-6 has-text-weight-bold">{{share.symbol}}</div>
+                                </div>
+                                <div class="column">
+                                    {% if share.symbol == "TCS.NS" %}
+                                    <div class="cell is-size-6 has-text-weight-bold has-text-danger-on-scheme">{{share.txn_price}}(-18%)</div>
+                                    {% else %}
+                                    <div class="cell is-size-6 has-text-weight-bold has-text-success-on-scheme">{{share.txn_price}}(+18%)</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="columns is-mobile">
+                                <div class="column">
+                                    <div class="cell is-size-7 has-text-weight-semibold">Avg 456.64</div>
+                                </div>
+                                <div class="column">
+                                    <div class="cell is-size-7 has-text-weight-semibold">LTP 538.85</div>
+                                </div>
+                            </div>
+                            <div class="columns is-mobile">
+                                <div class="column">
+                                    <div class="cell is-size-6 has-text-weight-semibold">Invested 1000</div>
+                                </div>
+                                <div class="column">
+                                    <div class="cell is-size-6 has-text-weight-semibold">Current 1050</div>
+                                </div>
+                            </div>
+
+                            <div class="columns is-mobile">
+                                <div class="column is-3 is-offset-5">
+                                    <button class="button is-primary is-outlined is-small ml-5" >Transaction List</button>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}   
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock %}
+
